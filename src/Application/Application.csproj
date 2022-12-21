@@ -1,0 +1,245 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<RootNamespace>Jorda.Server.Application</RootNamespace>
+	<AssemblyName>Jorda.Server.Application</AssemblyName>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.32" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.32" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.32" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Common\Resources\General.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Limitation\Limitation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Limitation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Goal\CreateUpdateGoalCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateGoalCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\HistoryItem\HistoryItemsQueryValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HistoryItemsQueryValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\ChangePasswordRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ChangePasswordRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\ChangePasswordRequestValidation\ChangePasswordRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ChangePasswordRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\CreateUserRequestValidation\CreateUserRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUserRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\ForgotPasswordRequestValidation\ForgotPasswordRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ForgotPasswordRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\TokenRequestValidation\TokenRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TokenRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Identity\UserLockoutRequestValidation\UserLockoutRequestValidation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserLockoutRequestValidation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Label\CreateUpdateLabelCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateLabelCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Note\CreateUpdateNoteCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateNoteCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Note\NotesQueryValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NotesQueryValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Notification\CreateUpdateNotificationCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateNotificationCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\Section\CreateUpdateSectionCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateSectionCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\ToDoItem\CreateUpdateToDoITemCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CreateUpdateToDoItemCommandValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\ToDoItem\ToDoItemsQueryValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ToDoItemsQueryValidator.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Common\Resources\Validation\UserFile\UploadUserFileCommandValidator.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UploadUserFileCommandValidator.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Common\Resources\General.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Limitation\Limitation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Limitation\Limitation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Limitation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Goal\CreateUpdateGoalCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Goal\CreateUpdateGoalCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateGoalCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\HistoryItem\HistoryItemQueryValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\HistoryItem\HistoryItemsQueryValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HistoryItemsQueryValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\ChangePasswordRequestValidation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePasswordRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\ChangePasswordRequestValidation\ChangePasswordRequestValidation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\ChangePasswordRequestValidation\ChangePasswordRequestValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePasswordRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\CreateUserRequestValidation\CreateUserRequestValidation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\CreateUserRequestValidation\CreateUserRequestValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUserRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\ForgotPasswordRequestValidation\ForgotPasswordRequestValidation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\ForgotPasswordRequestValidation\ForgotPasswordRequestValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ForgotPasswordRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\TokenRequestValidation\TokenRequestValidation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\TokenRequestValidation\TokenRequestValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TokenRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\UserLockoutRequestValidation\UserLockoutRequestValidation.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Identity\UserLockoutRequestValidation\UserLockoutRequestValidation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserLockoutRequestValidation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Label\CreateUpdateLabelCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Label\CreateUpdateLabelCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateLabelCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Note\CreateUpdateNoteCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Note\CreateUpdateNoteCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateNoteCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Note\NotesQueryValidator.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NotesQueryValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Notification\CreateUpdateNotificationCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Notification\CreateUpdateNotificationCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateNotificationCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Section\CreateUpdateSectionCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\Section\CreateUpdateSectionCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateSectionCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\ToDoItem\CreateUpdateToDoItemCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\ToDoItem\CreateUpdateToDoItemCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateUpdateToDoITemCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\ToDoItem\ToDoItemsQueryValidator.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToDoItemsQueryValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\UserFile\UploadUserFileCommandValidator.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Common\Resources\Validation\UserFile\UploadUserFileCommandValidator.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UploadUserFileCommandValidator.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Enums\" />
+    <Folder Include="Common\Helpers\" />
+  </ItemGroup>
+
+</Project>
