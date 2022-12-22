@@ -44,5 +44,22 @@ public class UserFileController : ApiControllerBase
         await Mediator.Send(new DeleteUserFileCommand() { Id = id, GoalId = goalId });
         return NoContent();
     }
+
+    [HttpGet("sa")]
+    public ActionResult<Resp> GetAll()
+    {
+        return Ok(new Resp() { Id=Elo.One });
+    }
+}
+
+public enum Elo
+{
+    One,
+    Two
+}
+
+public class Resp
+{
+    public Elo Id { get; set; }
 }
 

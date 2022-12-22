@@ -22,7 +22,6 @@ public static class ConfigureServices
     {
         services.Configure<EmailSettings>(configuration.GetSection("SendGridSettings"));
         services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
-        services.Configure<StripeSettings>(configuration.GetSection("StripeSettings"));
         services.AddScoped<AuditableEntitySaveChangesInterceptor>();
         services.AddDbContext<ApplicationDbContext>(options =>
            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));

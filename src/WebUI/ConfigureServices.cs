@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Diagnostics;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Jorda.WebUi
 {
@@ -24,7 +24,8 @@ namespace Jorda.WebUi
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ErrorHandlingMiddleware>();
             services.AddHttpContextAccessor();
-            services.AddControllers(options => options.Filters.Add<ApiExceptionFilterAttribute>());
+            services.AddControllers(options => options.Filters.Add<ApiExceptionFilterAttribute>())
+                .AddJsonOptions(n => n.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
